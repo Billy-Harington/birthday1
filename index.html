@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление Ходива Хуршеда</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: yellow;
+            animation: fall 5s infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(720deg); }
+        }
+
+        .confetti:nth-child(odd) {
+            background: red;
+            animation-duration: 4s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>С Днём Рождения, Хуршедик!</h1>
+    <p>Ну что, братан, 17? Почти взрослый! Тебе бы в армию, но я ошибся с датой, так что расслабься, ещё год без проблем.</p>
+    <p>Знаешь, что самое жёсткое в этом всём? Твои 16 лет прошли как мои 5 минут — в надежде, что просплю и никто не заметит.</p>
+    <p>Теперь тебе официально можно ничего не делать и называть это "подготовкой ко взрослой жизни". Ну, если повезёт, конечно.</p>
+    <p>А пока наслаждайся — ведь впереди только рост налогов, седых волос и... да я перепутал твой др так что сорри а пока лови это. Моя совесть тоже испарилась вместе с твоей молодостью!</p>
+    
+    <div id="confetti-container"></div>
+
+    <script>
+        // Создаём конфетти для анимации
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            document.getElementById('confetti-container').appendChild(confetti);
+            setTimeout(() => confetti.remove(), 5000); // Убираем конфетти через 5 секунд
+        }
+
+        // Генерация конфетти каждые 300 миллисекунд
+        setInterval(createConfetti, 300);
+    </script>
+
+</body>
+</html>
